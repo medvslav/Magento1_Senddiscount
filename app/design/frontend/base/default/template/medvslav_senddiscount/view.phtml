@@ -1,0 +1,81 @@
+<?php
+
+/**
+ * Medvslav_Senddiscount extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Medvslav
+ * @package        Medvslav_Senddiscount
+ * @copyright      Copyright (c) 2016
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+
+/**
+ * Subscription form view template
+ *
+ * @category    Medvslav
+ * @package     Medvslav_Senddiscount
+ * @author      Medved Yaroslav
+ */
+?>
+
+<?php /* @var $this Mage_ProductAlert_Block_Product_View */
+if(!Mage::getSingleton('customer/session')->isLoggedIn()){
+    $firstName = ''; 
+    $surname = '';
+    $email = '';   
+}else{
+    $customer = Mage::getSingleton('customer/session')->getCustomer();
+    $firstName = $customer->getFirstname(); 
+    $surname = $customer->getLastname();
+    $email = $customer->getEmail();
+}
+
+$product_id = Mage::registry('current_product')->getId();
+ ?>
+
+<div> 
+    <p class="alert-price link-price-alert">
+        <a id="open_senddiscount_click_button"  onclick="return false;" onmouseout="$('open_senddiscount_click_button').removeClassName('selected')" onmouseover="$('open_senddiscount_click_button').addClassName('selected')" href="#"><?php echo $this->escapeHtml($this->__('I want to be informed if product will be discounted')); ?></a>
+    </p>
+</div>
+
+<div id="senddiscount" style="display:none">
+    
+        <h2 class="senddiscount_title"><?php echo $this->escapeHtml('Subscribe to price change') ?></h2>
+        <p>
+                <span id='senddiscount_error_msg' class="senddiscount_error" style="display:none">&nbsp;</span><br />
+                <span id='senddiscount_success_msg' class="senddiscount_success" style="display:none">&nbsp;</span><br />
+        </p>
+        <div style="clear:both"></div>
+        <p>
+                <span class="senddiscount_label"><?php echo $this->escapeHtml('First name') ?>*</span> 
+                <span class="senddiscount_input"><input id="senddiscount_first_name" class="input-text required-entry validate-no-html-tags validate-alpha" name="first_name" type="text" onfocus="clearErrorsSuccess()" value="<?php echo $firstName; ?>" /></span>
+        </p>
+        <div style="clear:both"></div>
+        <p>
+                <span class="senddiscount_label"><?php echo $this->escapeHtml('Surname') ?>*</span> 
+                <span class="senddiscount_input"><input id="senddiscount_surname" class="input-text required-entry validate-no-html-tags validate-alpha" name="surname" type="text" onfocus="clearErrorsSuccess()"  value="<?php echo $surname; ?>" /></span>
+        </p>
+        <div style="clear:both"></div>
+        <p>
+                <span class="senddiscount_label"><?php echo $this->escapeHtml('Email') ?>*</span> 
+                <span class="senddiscount_input"><input id="senddiscount_email" class="input-text required-entry validate-no-html-tags validate-email" name="email" type="text" onfocus="clearErrorsSuccess()" value="<?php echo $email; ?>" /></span>
+        </p>
+        <div style="clear:both"></div>
+        <p>
+                <span class="senddiscount_label"><?php echo $this->escapeHtml('Phone') ?></span> 
+                <span class="senddiscount_input"><input id="senddiscount_phone" class="input-text validate-no-html-tags validate-digits" name="phone" type="text" onfocus="clearErrorsSuccess()" value="" /></span>
+        </p>
+        <div style="clear:both"></div>
+        <input id="senddiscount_product_id" name="product_id" type="hidden" value="<?php echo $product_id; ?>" />
+        
+        <span id="senddiscount_progress" style="display:none" >&nbsp;</sapn>
+     
+</div>

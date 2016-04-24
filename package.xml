@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<package>
+    <name>Medvslav_Senddiscount</name>
+    <version>1.0.0</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/mit-license.php">Massachusetts Institute of Technology License (MITL)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Module for subscribing registered and unregistered customers to price change email</summary>
+    <description>- You can enable your registered and unregistered customers to subscribe to price change email.&#xD;
+- When the module "Subscribe to the product discount" is enabled, a "I want to be informed if product will be discounted" link appears on every product page. &#xD;
+- Customers can click the link to subscribe to emails related to the product.&#xD;
+- Whenever the price changes, or the product goes on special, everyone who has signed up to be notified receives an email about it.&#xD;
+- Eshop owner has in the table databse of customers, who are waiting for discount for particular product.&#xD;
+- The emails will be sended for customers automatically by Cron (default one time for day at 00:00) to all subsribed users and products which price has changed.&#xD;
+- When user get an email about price change of product, he can unsubscribe from email messages by clicking on link in the email (only for one product or all products subscription).&#xD;
+&#xD;
+- When customer click on link "I want to be informed if product will be discounted", new form is loaded by javascript (the form is displayed on the same place without reloading a page).&#xD;
+&#xD;
+Form has these input boxes:&#xD;
+- First name &#x2013; input box &#x2013; required&#xD;
+- Surname &#x2013; input box &#x2013; required&#xD;
+- Email &#x2013; input box &#x2013; required&#xD;
+- Phone &#x2013; input box &#x2013; optional&#xD;
+- Submit button "Send an emial, when product is discounted"&#xD;
+&#xD;
+When customer send form, new messaage will be displayed, messaage must be managed in static html block in admin. The default text is "We are going to send you an email or give a call when this product will be discounted". &#xD;
+- Send form will be done by AJAX (without reloading of page).&#xD;
+&#xD;
+- The data that entered customers into the input fields in the form will be validated on the client and sever sides of the store.&#xD;
+&#xD;
+Admin of Magento will have new view, under section "SALES", called "Potential Customer", table of standart layout with the ability filtering and sorting data. &#xD;
+The table has columns:&#xD;
+- Date + Time&#xD;
+- IP address of customer&#xD;
+- First name&#xD;
+- Surname&#xD;
+- Email&#xD;
+- Phone&#xD;
+- SKU of product&#xD;
+- ID of product&#xD;
+- Status of subscription &#x2013; pending, notified or cancelled&#xD;
+&#xD;
+Admin user can manually change status or delete customer data from list&#xD;
+&#xD;
+SKU, in the table, is link to product detail page&#xD;
+&#xD;
+Admin can export the list of customers into CSV-, Excel-, XML-files.&#xD;
+&#xD;
+Admin can manage some users for one time (change status or delete) through the "mass-actions". &#xD;
+&#xD;
+Installation of the extension needs to be done through Magento Connect in the administrative part of the site.&#xD;
+&#xD;
+When you install this extension in the administrative part of the Magento will be created a new static CMS block - "For the message of module "Send Discount" " . In this block you can change the success message, which will be shown in the form on product page, when customer have subscribed to price change of the product. The default message is "We are going to send you an email or give a call when this product will be discounted".&#xD;
+&#xD;
+To set up product alerts:&#xD;
+1. On the Admin menu, select System &gt; Configuration. Then in the panel on the left, under&#xD;
+Catalog, select Catalog.&#xD;
+2. Click to expand the Product Alerts section, and do the following:&#xD;
+- To offer price change alerts to your customers, set Allow Alert When Product Price&#xD;
+Changes to "Yes".&#xD;
+- Set Price Alert Email Template to the template that you want to use for the price alert&#xD;
+notifications.&#xD;
+&#xD;
+</description>
+    <notes>Installation of the extension needs to be done through Magento Connect in the administrative part of the site.&#xD;
+&#xD;
+When you install this extension in the administrative part of the Magento will be created a new static CMS block - "For the message of module "Send Discount" " . In this block you can change the success message, which will be shown in the form on product page, when customer have subscribed to price change of the product. The default message is "We are going to send you an email or give a call when this product will be discounted".&#xD;
+&#xD;
+To set up product alerts:&#xD;
+1. On the Admin menu, select System &gt; Configuration. Then in the panel on the left, under&#xD;
+Catalog, select Catalog.&#xD;
+2. Click to expand the Product Alerts section, and do the following:&#xD;
+- To offer price change alerts to your customers, set Allow Alert When Product Price&#xD;
+Changes to "Yes".&#xD;
+- Set Price Alert Email Template to the template that you want to use for the price alert&#xD;
+notifications.&#xD;
+</notes>
+    <authors><author><name>Yaroslav</name><user>Medved</user><email>medvslav@gmail.com</email></author></authors>
+    <date>2016-02-26</date>
+    <time>12:33:20</time>
+    <contents><target name="magelocal"><dir name="Medvslav"><dir name="Senddiscount"><dir name="Block"><dir name="Adminhtml"><dir name="Sdcustomer"><dir name="Edit"><file name="Form.php" hash="11540aeabc44de8782b7fd3a4a87e84b"/><dir name="Tab"><dir name="Field"><file name="Myfield.php" hash="eca6e531229a84dcba5d15cf28e9ec0c"/></dir><file name="Form.php" hash="41da6b8a7d251006edd5158b475dce63"/></dir><file name="Tabs.php" hash="3da005e2b571f4995dee9a9480952f12"/></dir><file name="Edit.php" hash="5de67ea98d3a45ca28660a482c215638"/><file name="Grid.php" hash="234b93dadd314bb722fceece793fef2b"/></dir><file name="Sdcustomer.php" hash="1892945ef4c6bf6de75bcf547fd8bd05"/></dir><dir name="Email"><file name="Price.php" hash="8e6d8224314f1edd978dd013fa35f722"/></dir></dir><dir name="Controller"><dir name="Adminhtml"><file name="Senddiscount.php" hash="9fabc12b7675c3c6b11fe15ae6e9acd6"/></dir></dir><dir name="Helper"><file name="Data.php" hash="8af15c1e6a7c2d88292bcd537b66ed95"/></dir><dir name="Model"><dir name="Adminhtml"><dir name="Search"><file name="Sdcustomer.php" hash="92453e387838a7456e3835ef986535f7"/></dir></dir><file name="Email.php" hash="338e53c74cf599d39ee8303fb5efc4d3"/><file name="Observer.php" hash="9c75769b55c6149815ac9a16d981e4ce"/><dir name="Resource"><dir name="Sdcustomer"><file name="Collection.php" hash="b60d65c16a7ad163c454b442d5a57d2e"/></dir><file name="Sdcustomer.php" hash="6bff5a882aa7fab8b86e57debd56fcd2"/><file name="Setup.php" hash="4424973033fcd3777e459715f233cdfc"/></dir><dir name="Sdcustomer"><dir name="Attribute"><dir name="Source"><file name="Customerstatus.php" hash="211f7bc8c65e00a58695fa8657fb50ca"/></dir></dir></dir><file name="Sdcustomer.php" hash="ebaa3d460a1a0488c72992f138ac46fe"/></dir><dir name="controllers"><dir name="Adminhtml"><dir name="Senddiscount"><file name="SdcustomerController.php" hash="6312ea7d53121b122a2969e3f1173e6b"/></dir></dir><file name="IndexController.php" hash="77ec3d5b00b759fbf0399ccbff9b0c49"/><file name="UnsubscribeController.php" hash="b24e8b39e7b7fccd35a190aef21d7f48"/></dir><dir name="data"><dir name="medvslav_senddiscount_setup"><file name="data-install-1.0.0.php" hash="f5550f69392236b80b73041f2a98ea70"/></dir></dir><dir name="etc"><file name="adminhtml.xml" hash="9d84b638265b263a64aad918d959d4f9"/><file name="config.xml" hash="52c615ac6716faaa8d5f17c4ded2193d"/></dir><dir name="sql"><dir name="medvslav_senddiscount_setup"><file name="install-1.0.0.php" hash="685741975816955c57fab453ab3c1558"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Medvslav_Senddiscount.xml" hash="eb95aa1311937b41046d20aa6e5585e9"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><dir name="medvslav"><file name="senddiscount.xml" hash="82eb9b52b642f6566489f58f7c9cd7b4"/></dir></dir><dir name="template"><dir name="medvslav_senddiscount"><file name="view.phtml" hash="079dd8081333f30b0677e17b55130137"/></dir></dir></dir></dir></dir><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><file name="medvslav_senddiscount.xml" hash="f63e25bb90601123c25be491fbe326ef"/></dir></dir></dir></dir></target><target name="mageskin"><dir name="frontend"><dir name="base"><dir name="default"><dir name="css"><dir name="medvslav_senddiscount"><file name="senddiscount.css" hash="064238ecdafe6d9c9839f24582a8408d"/></dir></dir><dir name="js"><dir name="medvslav_senddiscount"><file name="senddiscount.js" hash="808e82a59d4d8dabdad8b9d42151c6cf"/><file name="window.js" hash="1e305ad1d962f10a56c6970babc03d32"/></dir></dir><dir name="images"><dir name="medvslav_senddiscount"><dir name="alert"><file name="bottom.gif" hash="e859e3bc00c4f10360fa81a659aa673f"/><file name="bottom_left.gif" hash="53585b1a0351d599e76a85ccc26f7980"/><file name="bottom_right.gif" hash="8170abe3fec71fd17612869a2f036cd6"/><file name="left.gif" hash="4f235c4e6afb0d386d220638c49e4545"/><file name="overlay.png" hash="f4ddcee6f819975bc9c5643b570de6dc"/><file name="progress.gif" hash="86b1ac6d1c485d54efa3a53643e91ceb"/><file name="right.gif" hash="838ade41815529e7a63f99c93b3a01f7"/><file name="top.gif" hash="8702ca9b81c19f6220ce81c4ea215878"/><file name="top_left.gif" hash="a8c097bcb67bddf640c2bd9161b79476"/><file name="top_right.gif" hash="05ef4e1a417a5a2c81fc816406a4842a"/></dir><dir name="themes"><file name="alert.css" hash="27df86baae5a6fa2e3556bdf1b85ccc6"/><file name="alert_lite.css" hash="fbeaff8f185cd3b302f1a8db5efa0110"/><dir name="alphacube"><file name="bottom-left-c.gif" hash="434cdfc5298f33efb108264cf3370e1c"/><file name="bottom-middle.gif" hash="3f882dd32d57a29a785f448bbba5ed26"/><file name="bottom-right-c.gif" hash="4c37ad7b94fc901a1cfaf54a1742d5fd"/><file name="button-close-focus.gif" hash="99c44a6df2733b58083af7a4d9522116"/><file name="button-max-focus.gif" hash="408cd33fa89269b8395bf10afe69d456"/><file name="button-min-focus.gif" hash="ae06210658bad8bcc88dea377c4dc908"/><file name="frame-left.gif" hash="1bb1207b43425d214d4dc0da108f5449"/><file name="frame-right.gif" hash="8b9c36079881aa15c27a137666c56a38"/><file name="left-top.gif" hash="1ea936a090b4dfe8160fcb3a90ddb145"/><file name="right-top.gif" hash="e1b641feab640cb4207fa52160715e32"/><file name="top-middle.gif" hash="7f94c1018d023832c7c9e1fa468a9555"/></dir><file name="alphacube.css" hash="27c968911eaef53df158c55083ef0c84"/><file name="debug.css" hash="63ee9aa7b7d80e0bb5e311407746ccd3"/><file name="default.css" hash="16014098f441d12d06c088135e2fde28"/><file name="spread.css" hash="a804413d7f1f9550c134477f6f9219ee"/></dir></dir></dir></dir></dir></dir></target><target name="magelocale"><dir name="en_US"><file name="Medvslav_Senddiscount.csv" hash="068408407fdc9505cdbb3636fcffa386"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.3.30</min><max>5.5.9</max></php><package><name>Mage_Core_Modules</name><channel>community</channel><min>1.8</min><max>1.9.2</max></package></required></dependencies>
+</package>

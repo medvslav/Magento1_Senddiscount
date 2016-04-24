@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Medvslav_Senddiscount extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Medvslav
+ * @package        Medvslav_Senddiscount
+ * @copyright      Copyright (c) 2016
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+    <modules>
+        <Medvslav_Senddiscount>
+            <version>1.0.0</version>
+        </Medvslav_Senddiscount>
+    </modules>
+    <global>
+        <resources>
+            <medvslav_senddiscount_setup>
+                <setup>
+                    <module>Medvslav_Senddiscount</module>
+                    <class>Medvslav_Senddiscount_Model_Resource_Setup</class>
+                </setup>
+            </medvslav_senddiscount_setup>
+        </resources>
+        <blocks>
+            <medvslav_senddiscount>
+                <class>Medvslav_Senddiscount_Block</class>
+            </medvslav_senddiscount>
+            <productalert>                        
+                <rewrite>                               
+                     <email_price>Medvslav_Senddiscount_Block_Email_Price</email_price>        
+                </rewrite>                       
+            </productalert>
+        </blocks>
+        <helpers>
+            <medvslav_senddiscount>
+                <class>Medvslav_Senddiscount_Helper</class>
+            </medvslav_senddiscount>
+        </helpers>
+        <models>
+            <medvslav_senddiscount>
+                <class>Medvslav_Senddiscount_Model</class>
+                <resourceModel>medvslav_senddiscount_resource</resourceModel>
+            </medvslav_senddiscount>
+            <medvslav_senddiscount_resource>
+                <class>Medvslav_Senddiscount_Model_Resource</class>
+                <entities>
+                    <sdcustomer>
+                        <table>medvslav_senddiscount_sdcustomer</table>
+                    </sdcustomer>
+                </entities>
+            </medvslav_senddiscount_resource>
+            <productalert>                        
+                <rewrite>                               
+                     <observer>Medvslav_Senddiscount_Model_Observer</observer>
+                     <email>Medvslav_Senddiscount_Model_Email</email>        
+                </rewrite>                       
+            </productalert> 
+        </models>
+    </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <medvslav_senddiscount>
+                    <file>medvslav_senddiscount.xml</file>
+                </medvslav_senddiscount>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Medvslav_Senddiscount>
+                    <files>
+                        <default>Medvslav_Senddiscount.csv</default>
+                    </files>
+                </Medvslav_Senddiscount>
+            </modules>
+        </translate>
+        <global_search>
+            <sdcustomer>
+                <class>medvslav_senddiscount/adminhtml_search_sdcustomer</class>
+                <acl>medvslav_senddiscount</acl>
+            </sdcustomer>
+        </global_search>
+    </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Medvslav_Senddiscount before="Mage_Adminhtml">Medvslav_Senddiscount_Adminhtml</Medvslav_Senddiscount>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <frontend>
+         <routers>
+            <medvslav_senddiscount>
+                <use>standard</use>
+                <args>
+                    <module>Medvslav_Senddiscount</module>
+                    <frontName>senddiscount</frontName>
+                </args>
+            </medvslav_senddiscount>
+            <productalert>
+                <args>
+                    <modules>
+                        <medvslav_senddiscount before="Mage_ProductAlert" >Medvslav_Senddiscount</medvslav_senddiscount>
+                    </modules>
+                </args>
+            </productalert>
+        </routers>
+        <layout>
+            <updates>
+                <medvslav_senddiscount>
+                    <file>medvslav/senddiscount.xml</file>
+                </medvslav_senddiscount>
+            </updates>
+        </layout>
+         <translate>
+            <modules>
+                <Medvslav_Senddiscount>
+                    <files>
+                        <default>Medvslav_Senddiscount.csv</default>
+                    </files>
+                </Medvslav_Senddiscount>
+            </modules>
+        </translate>
+    </frontend>
+</config>

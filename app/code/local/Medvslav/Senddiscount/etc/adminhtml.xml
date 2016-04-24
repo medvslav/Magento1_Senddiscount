@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Medvslav_Senddiscount extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Medvslav
+ * @package        Medvslav_Senddiscount
+ * @copyright      Copyright (c) 2016
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>                    
+                    <sales>
+                        <children>
+                            <medvslav_senddiscount translate="title" module="medvslav_senddiscount">
+                                <title>Potential Customer</title>                                
+                            </medvslav_senddiscount>                        
+						</children>
+                    </sales>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <menu>
+        <sales>
+            <children>
+                <medvslav_senddiscount translate="title" module="medvslav_senddiscount">
+                    <title>Potential Customer</title>
+                    <sort_order>1000</sort_order>
+					<action>adminhtml/senddiscount_sdcustomer</action>                    
+                </medvslav_senddiscount>            </children>
+        </sales>
+
+    </menu>
+</config>

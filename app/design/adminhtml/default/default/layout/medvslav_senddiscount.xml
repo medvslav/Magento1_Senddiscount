@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Medvslav_Senddiscount extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Medvslav
+ * @package        Medvslav_Senddiscount
+ * @copyright      Copyright (c) 2016
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+--> 
+<layout>
+    <adminhtml_senddiscount_sdcustomer_index>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>sales/medvslav_senddiscount/sdcustomer</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="medvslav_senddiscount/adminhtml_sdcustomer" name="sdcustomer" />
+
+        </reference>
+    </adminhtml_senddiscount_sdcustomer_index>
+    <adminhtml_senddiscount_sdcustomer_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="medvslav_senddiscount/adminhtml_sdcustomer_grid" name="sdcustomer_grid"/>
+        </block>
+    </adminhtml_senddiscount_sdcustomer_grid>
+    <!-- Sdcustomer add/edit action -->
+    <adminhtml_senddiscount_sdcustomer_edit>
+        <update handle="editor"/>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>sales/medvslav_senddiscount/sdcustomer</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="medvslav_senddiscount/adminhtml_sdcustomer_edit" name="sdcustomer_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="medvslav_senddiscount/adminhtml_sdcustomer_edit_tabs" name="sdcustomer_tabs"></block>
+        </reference>
+    </adminhtml_senddiscount_sdcustomer_edit>
+
+</layout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Medvslav_Senddiscount extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Medvslav
+ * @package        Medvslav_Senddiscount
+ * @copyright      Copyright (c) 2015
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<layout>
+    <catalog_product_view>
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><js>js/medvslav_senddiscount/window.js</js></action>
+            <action method="addItem"><type>skin_js</type><js>js/medvslav_senddiscount/senddiscount.js</js></action>
+            <action method="addCss"><css>css/medvslav_senddiscount/senddiscount.css</css></action>    
+        </reference>    
+        <reference name="productalert.price">
+            <action method="setTemplate">
+                <template>medvslav_senddiscount/view.phtml</template>
+            </action>
+        </reference>                
+    </catalog_product_view>
+</layout>
