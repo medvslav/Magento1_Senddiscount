@@ -54,4 +54,5 @@ Catalog, select Catalog.<br />
 - To offer price change alerts to your customers, set Allow Alert When Product Price<br />
 Changes to "Yes".<br />
 - Set Price Alert Email Template to the template that you want to use for the price alert<br />
-notifications.
+notifications.<br />
+Magento module.
