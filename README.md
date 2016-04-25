@@ -55,4 +55,3 @@ Catalog, select Catalog.<br />
 Changes to "Yes".<br />
 - Set Price Alert Email Template to the template that you want to use for the price alert<br />
 notifications.<br />
-Magento module.
